@@ -27,10 +27,9 @@ services:
       POSTGRES_PASSWORD: mypassword
       POSTGRES_DB: mydb
     ports:
-      - "9000:5432"
+      - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
 
 volumes:
   db_data:
-
