@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # خطوة سحب ملفات المستودع
       - uses: actions/checkout@v3
 
       # خطوة اختبار الاتصال بالـ VM
@@ -29,8 +30,8 @@ jobs:
           host: ${{ secrets.AZURE_VM_HOST }}
           username: ${{ secrets.AZURE_VM_USER }}
           key: ${{ secrets.AZURE_VM_SSH_KEY }}
-          source: "."
-          target: "~/myapp"
+          source: "./*"       # كل الملفات في المستودع
+          target: "/home/azureuser/m/"
 
       # تشغيل docker-compose
       - name: SSH and run docker-compose
