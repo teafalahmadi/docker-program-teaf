@@ -20,12 +20,12 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no azureuser@4.232.186.60 "
             cd /home/azureuser
-            if [ ! -d app ]; then
-              git clone https://github.com/teafalahmadi/docker-program-teaf.git app
+            if [ ! -d docker-program-teaf ]; then
+              git clone https://github.com/teafalahmadi/docker-program-teaf.git
             else
-              cd app && git pull
+              cd docker-program-teaf && git pull
             fi
-            cd /home/azureuser/app &&
+            cd /home/azureuser/docker-program-teaf &&
             sudo docker-compose down &&
             sudo docker-compose up -d --build
           "
